@@ -10,8 +10,6 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: true,
   },
 
@@ -22,82 +20,58 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'origin-when-cross-origin',
           },
         ],
       },
       {
-        source: '/fonts/(.*)',
+        source: '/static/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
-      {
-        source: '/_next/static/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
-      },
-      {
-        source: '/images/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
-      }
     ]
   },
 
-  // Experimental features for performance
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
-  },
-
-  // Bundle analyzer
+  // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
+    // Production optimizations
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
+          default: false,
+          vendors: false,
           vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
+            name: 'vendor',
             chunks: 'all',
+            test: /node_modules/,
           },
         },
       }
     }
-    
+
     return config
   },
 
+  // Experimental features (stable ones only)
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+
+  // ESLint and TypeScript configurations
   eslint: {
     ignoreDuringBuilds: true,
   },

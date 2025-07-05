@@ -64,7 +64,7 @@ export function Header() {
             </button>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Only show on large screens */}
           <nav
             className="hidden lg:flex items-center space-x-6 xl:space-x-8"
             role="navigation"
@@ -84,6 +84,7 @@ export function Header() {
             ))}
           </nav>
 
+          {/* Desktop CTA Button - Only show on large screens */}
           <div className="hidden lg:flex items-center">
             <Button
               onClick={() => handleNavigation("/get-in-touch")}
@@ -93,72 +94,74 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Navigation */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 sm:h-10 sm:w-10 focus:ring-2 focus:ring-blue-500"
-                aria-label="Open navigation menu"
-              >
-                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[320px] p-0">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 sm:p-6 border-b">
-                  <button
-                    onClick={handleLogoClick}
-                    className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-1"
-                    aria-label="Nuclian - Go to homepage"
-                  >
-                    <div className="h-7 w-7 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-base">N</span>
-                    </div>
-                    <span className="font-bold text-lg text-gray-900">Nuclian</span>
-                  </button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setIsOpen(false)}
-                    className="h-8 w-8 focus:ring-2 focus:ring-blue-500"
-                    aria-label="Close navigation menu"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
-                </div>
-                <nav
-                  className="flex flex-col space-y-1 p-4 sm:p-6 flex-grow"
-                  role="navigation"
-                  aria-label="Mobile navigation"
+          {/* Mobile Navigation - Only show on small/medium screens */}
+          <div className="lg:hidden">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-9 w-9 sm:h-10 sm:w-10 focus:ring-2 focus:ring-blue-500"
+                  aria-label="Open navigation menu"
                 >
-                  {navigation.map((item) => (
+                  <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] sm:w-[320px] p-0">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between p-4 sm:p-6 border-b">
                     <button
-                      key={item.name}
-                      onClick={() => handleNavigation(item.href)}
-                      className={`text-base sm:text-lg font-medium transition-colors py-3 px-2 rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        pathname === item.href
-                          ? "text-blue-600 bg-blue-50"
-                          : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
-                      }`}
-                      aria-current={pathname === item.href ? "page" : undefined}
+                      onClick={handleLogoClick}
+                      className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-1"
+                      aria-label="Nuclian - Go to homepage"
                     >
-                      {item.name}
+                      <div className="h-7 w-7 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-base">N</span>
+                      </div>
+                      <span className="font-bold text-lg text-gray-900">Nuclian</span>
                     </button>
-                  ))}
-                </nav>
-                <div className="p-4 sm:p-6 border-t">
-                  <Button
-                    onClick={() => handleNavigation("/get-in-touch")}
-                    className="w-full bg-blue-600 hover:bg-blue-700 h-12 text-base focus:ring-2 focus:ring-blue-500"
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsOpen(false)}
+                      className="h-8 w-8 focus:ring-2 focus:ring-blue-500"
+                      aria-label="Close navigation menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </div>
+                  <nav
+                    className="flex flex-col space-y-1 p-4 sm:p-6 flex-grow"
+                    role="navigation"
+                    aria-label="Mobile navigation"
                   >
-                    Get in Touch
-                  </Button>
+                    {navigation.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`text-base sm:text-lg font-medium transition-colors py-3 px-2 rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                          pathname === item.href
+                            ? "text-blue-600 bg-blue-50"
+                            : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                        }`}
+                        aria-current={pathname === item.href ? "page" : undefined}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </nav>
+                  <div className="p-4 sm:p-6 border-t">
+                    <Button
+                      onClick={() => handleNavigation("/get-in-touch")}
+                      className="w-full bg-blue-600 hover:bg-blue-700 h-12 text-base focus:ring-2 focus:ring-blue-500"
+                    >
+                      Get in Touch
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>

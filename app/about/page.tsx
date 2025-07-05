@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Target, Award, Globe, Heart, Lightbulb } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { DynamicCodeShowcase } from "@/components/dynamic-code-showcase"
 
 export const metadata: Metadata = {
   title: "About Nuclian - Professional Software Development Team & Company Story",
@@ -150,14 +151,7 @@ export default function AboutPage() {
                 </Button>
               </div>
               <div className="relative order-first lg:order-last">
-                <img
-                  src="/placeholder.svg?height=500&width=600"
-                  alt="Nuclian team collaboration and software development process"
-                  className="rounded-2xl shadow-lg w-full h-auto"
-                  loading="lazy"
-                  width={600}
-                  height={500}
-                />
+                <DynamicCodeShowcase />
               </div>
             </div>
           </div>
