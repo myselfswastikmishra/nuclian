@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, CheckCircle, Users, Zap, Shield } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { InteractiveFeaturesShowcase } from "@/components/interactive-features-showcase"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -73,24 +74,6 @@ export default function HomePage() {
     },
   ]
 
-  const features = [
-    {
-      icon: <Users className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />,
-      title: "Expert Team",
-      description: "Skilled professionals with years of industry experience",
-    },
-    {
-      icon: <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />,
-      title: "Fast Delivery",
-      description: "Agile development process ensuring quick turnaround times",
-    },
-    {
-      icon: <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />,
-      title: "Quality Assured",
-      description: "Rigorous testing and quality control for every project",
-    },
-  ]
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -152,39 +135,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="relative order-first lg:order-last">
-                <div className="bg-blue-600 rounded-2xl p-6 sm:p-8 text-white">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Why Choose Nuclian?</h2>
-                  <ul className="space-y-3 sm:space-y-4">
-                    <li className="flex items-start">
-                      <CheckCircle
-                        className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-blue-200 mt-0.5 flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm sm:text-base">Full-stack development expertise</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle
-                        className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-blue-200 mt-0.5 flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm sm:text-base">Cutting-edge technology solutions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle
-                        className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-blue-200 mt-0.5 flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm sm:text-base">Responsive and accessible design</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle
-                        className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-blue-200 mt-0.5 flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="text-sm sm:text-base">24/7 support and maintenance</span>
-                    </li>
-                  </ul>
-                </div>
+                <InteractiveFeaturesShowcase />
               </div>
             </div>
           </div>
@@ -233,59 +184,46 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-blue-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-                Why Businesses Trust Nuclian
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 px-2">
-                We combine technical expertise with business understanding
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {features.map((feature, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex justify-center mb-3 sm:mb-4" aria-hidden="true">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed px-2">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Testimonials */}
         <TestimonialsSection />
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-blue-600 text-white">
+        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-              Ready to Transform Your Digital Presence?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-blue-100 leading-relaxed px-2">
-              Let's discuss your project and create something amazing together
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                <Link href="/get-in-touch" aria-label="Start your software development project with Nuclian">
-                  Start Your Project <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base"
-              >
-                <Link href="/about" aria-label="Learn more about Nuclian software development team">
-                  Learn About Us
-                </Link>
-              </Button>
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-100 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
+
+              <div className="relative">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                  Ready to Transform Your Digital Presence?
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed px-2">
+                  Let's discuss your project and create something amazing together
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700 h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base shadow-lg"
+                  >
+                    <Link href="/get-in-touch" aria-label="Start your software development project with Nuclian">
+                      Start Your Project <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 bg-white h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base shadow-sm"
+                  >
+                    <Link href="/about" aria-label="Learn more about Nuclian software development team">
+                      Learn About Us
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>

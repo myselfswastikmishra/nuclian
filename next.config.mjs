@@ -42,6 +42,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ]
   },
 
@@ -58,6 +67,15 @@ const nextConfig = {
             name: 'vendor',
             chunks: 'all',
             test: /node_modules/,
+            priority: 20,
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true,
           },
         },
       }
@@ -66,9 +84,11 @@ const nextConfig = {
     return config
   },
 
-  // Experimental features (stable ones only)
+  // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    webpackBuildWorker: true,
+    parallelServerCompiles: true,
+    parallelServerBuildTraces: true,
   },
 
   // ESLint and TypeScript configurations

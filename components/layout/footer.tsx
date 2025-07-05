@@ -40,7 +40,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-white text-gray-900 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
@@ -51,7 +51,7 @@ export function Footer() {
               </div>
               <span className="font-bold text-xl">Nuclian</span>
             </div>
-            <p className="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">
               Creating exceptional software solutions that deliver outstanding user experiences and drive business
               growth.
             </p>
@@ -59,28 +59,28 @@ export function Footer() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-white hover:bg-gray-800 h-9 w-9 sm:h-10 sm:w-10"
+                className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-white hover:bg-gray-800 h-9 w-9 sm:h-10 sm:w-10"
+                className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-white hover:bg-gray-800 h-9 w-9 sm:h-10 sm:w-10"
+                className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-400 hover:text-white hover:bg-gray-800 h-9 w-9 sm:h-10 sm:w-10"
+                className="text-gray-500 hover:text-blue-600 hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Github className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
@@ -89,13 +89,13 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Services</h3>
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900">Services</h3>
             <ul className="space-y-2 sm:space-y-3">
               {services.map((service) => (
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm sm:text-base"
                   >
                     {service}
                   </Link>
@@ -106,13 +106,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Company</h3>
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900">Company</h3>
             <ul className="space-y-2 sm:space-y-3">
               {company.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-600 hover:text-blue-600 transition-colors text-sm sm:text-base"
                   >
                     {item.name}
                   </Link>
@@ -123,44 +123,44 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Contact Info</h3>
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900">Contact Info</h3>
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-start space-x-3">
-                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:hello@nuclian.com"
-                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base break-all"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm sm:text-base break-all"
                 >
                   hello@nuclian.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                 <a
                   href="tel:+15551234567"
-                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm sm:text-base"
                 >
                   +1 (555) 123-4567
                 </a>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-400 text-sm sm:text-base">Remote & Global</span>
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-600 text-sm sm:text-base">Remote & Global</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="border-t border-gray-800 pt-8 sm:pt-12 pb-8 sm:pb-12 mt-8 sm:mt-12">
+        <div className="border-t border-gray-200 pt-8 sm:pt-12 pb-8 sm:pb-12 mt-8 sm:mt-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="font-semibold text-lg sm:text-xl text-white mb-3 sm:mb-4">Stay Updated</h3>
-            <p className="text-gray-400 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed px-2">
+            <h3 className="font-semibold text-lg sm:text-xl text-gray-900 mb-3 sm:mb-4">Stay Updated</h3>
+            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed px-2">
               Get the latest industry insights, tech trends, and company updates delivered to your inbox.
             </p>
 
             {isSubscribed ? (
-              <div className="flex items-center justify-center text-green-400 bg-green-900/20 rounded-lg py-4 sm:py-6 px-4 sm:px-6 mx-2">
+              <div className="flex items-center justify-center text-green-600 bg-green-50 rounded-lg py-4 sm:py-6 px-4 sm:px-6 mx-2 border border-green-200">
                 <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 mr-3 flex-shrink-0" />
                 <span className="text-sm sm:text-base lg:text-lg font-medium text-center">
                   Thank you for subscribing! Check your email for confirmation.
@@ -177,7 +177,7 @@ export function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 bg-gray-800 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 h-11 sm:h-12 px-4 text-sm sm:text-base"
+                  className="flex-1 bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 h-11 sm:h-12 px-4 text-sm sm:text-base"
                 />
                 <Button
                   type="submit"
@@ -194,16 +194,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 sm:pt-8">
+        <div className="border-t border-gray-200 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+            <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
               © 2024 Nuclian. All rights reserved.
             </p>
             <div className="flex space-x-4 sm:space-x-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">
+              <Link href="/privacy" className="text-gray-500 hover:text-blue-600 text-xs sm:text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors">
+              <Link href="/terms" className="text-gray-500 hover:text-blue-600 text-xs sm:text-sm transition-colors">
                 Terms of Service
               </Link>
             </div>
